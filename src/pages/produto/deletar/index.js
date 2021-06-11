@@ -29,7 +29,7 @@ class Deletarproduto extends Component {
     componentDidMount() {
         const { id } = this.props.match.params;
  
-        fetch(`https://produto-backend-eng.herokuapp.com/produto/${id}`)
+        fetch(`${process.env.REACT_APP_API_URL}`)
             .then(data => {
                 data.json().then(data => {
                     if (data.error) {
@@ -71,7 +71,7 @@ class Deletarproduto extends Component {
     handleClick = event => {
         const { id } = this.props.match.params;
  
-        fetch(`https://produto-backend-eng.herokuapp.com/produto/${id}`, {
+        fetch(`${process.env.REACT_APP_API_URL}`, {
             method: "delete"
         })
             .then(data => {
